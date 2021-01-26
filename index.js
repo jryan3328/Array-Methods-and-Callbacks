@@ -31,12 +31,14 @@ Use getFinals to do the following:
 hint - you should be looking at the stage key inside of the objects
 */
 
-    function getFinals(stage, team){
-        const finalStage = [];
+    function getFinals(arr){
+        const finalStage = arr.filter(function(item){
+            return item.Stage === 'Final';
+        });
         
-        return fifaData.includes(item.Stage === 'Final')
-        
-}
+        return finalStage;
+    }
+    
    
 
 
@@ -46,8 +48,11 @@ Use the higher-order function called getYears to do the following:
 2. Receive a callback function getFinals from task 2 
 3. Return an array called years containing all of the years in the getFinals data set*/
 
-function getYears(array, cb) {
-    /* code here */
+function getYears(array, cb){
+    const years = cb(array).map(function(item){
+        return item.Year
+    });
+    return years;
 }
 
 
